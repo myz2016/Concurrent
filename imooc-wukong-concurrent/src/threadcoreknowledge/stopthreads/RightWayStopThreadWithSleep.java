@@ -13,7 +13,7 @@ public class RightWayStopThreadWithSleep {
             try {
                 while (!Thread.currentThread().isInterrupted() && num <= 300) {
                     if (num % 100 == 0) {
-                        System.out.printf("%d 是 100 的倍数", num);
+                        System.out.printf("%d 是 100 的倍数\n", num);
                     }
                     num++;
                 }
