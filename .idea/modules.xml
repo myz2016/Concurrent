@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Concurrent.iml" filepath="$PROJECT_DIR$/Concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/bjsxt-baihexiang-concurrent/bjsxt-baihexiang-concurrent.iml" filepath="$PROJECT_DIR$/bjsxt-baihexiang-concurrent/bjsxt-baihexiang-concurrent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imooc-wukong-concurrent/imooc-wukong-concurrent.iml" filepath="$PROJECT_DIR$/imooc-wukong-concurrent/imooc-wukong-concurrent.iml" />
     </modules>
   </component>
 </project>
