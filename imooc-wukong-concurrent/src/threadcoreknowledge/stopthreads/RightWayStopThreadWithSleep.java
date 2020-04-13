@@ -11,7 +11,7 @@ public class RightWayStopThreadWithSleep {
         Runnable r = () -> {
             int num = 0;
             try {
-                while (/*!Thread.currentThread().isInterrupted() &&*/ num <= Integer.MAX_VALUE / 2) {
+                while (!Thread.currentThread().isInterrupted() && num <= Integer.MAX_VALUE / 2) {
                     if (num % 100 == 0) {
                         System.out.printf("%d 是 100 的倍数\n", num);
                     }
