@@ -27,6 +27,7 @@ public class RightWayStopThreadWithSleepEveryLoop {
         thread.interrupt();
     }
     /**
-     * 当每次迭代都阻塞线程时，不需要加入 Thread.currentThread().isInterrupted() 这样的判断条件，这属于多余代码，也能中断线程
+     * 如果在执行过程中，每次循环都会调用 sleep 或 wait 等方法，那么不需要加入 Thread.currentThread().isInterrupted() ，每次都检查是否已中断，这是多余的判断。
+     * 即使没有这样的判断，也能中断线程。
      */
 }
