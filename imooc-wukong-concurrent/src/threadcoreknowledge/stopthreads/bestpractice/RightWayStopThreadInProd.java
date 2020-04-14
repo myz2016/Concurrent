@@ -18,6 +18,7 @@ public class RightWayStopThreadInProd implements Runnable {
                 System.out.printf("记录日志\n");
                 System.out.printf("停止程序\n");
                 e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
     }
