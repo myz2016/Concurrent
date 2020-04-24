@@ -1,22 +1,23 @@
-package threadcoreknowledge.threadobjectclasscommonmethods.producerconsumer.type_1;
+package threadcoreknowledge.threadobjectclasscommonmethods.producerconsumer;
 
-import java.time.LocalDate;
+import threadcoreknowledge.threadobjectclasscommonmethods.producerconsumer.support.Paper;
+
 import java.util.LinkedList;
 
 /**
  * @author mfh
  * @date 2020/4/24 16:22
  */
-public class Storage {
+public class Box implements Container<Paper> {
     private int maxSize;
-    private LinkedList<LocalDate> container;
+    private LinkedList<Paper> container;
 
-    public Storage() {
+    public Box() {
         this.maxSize = 10;
         this.container = new LinkedList<>();
     }
 
-    public synchronized void put() {
+    public synchronized void push() {
         while (container.size() == maxSize) {
             try {
                 wait();
@@ -24,7 +25,7 @@ public class Storage {
                 e.printStackTrace();
             }
         }
-        container.add(LocalDate.now());
+        container.add(new Paper());
         System.out.println("生产产品，仓库中有了" + container.size() + "个产品！");
         notify();
         try {
@@ -34,7 +35,7 @@ public class Storage {
         }
     }
 
-    public synchronized void take() {
+    public synchronized Paper take() {
         while (container.size() == 0) {
             try {
                 wait();
@@ -42,12 +43,19 @@ public class Storage {
                 e.printStackTrace();
             }
         }
-        System.out.println("拿出了 " + container.poll() + " 产品，当前仓库中剩余 " + container.size() + " 个产品！");
-        notify();
+        Paper paper = container.poll();
         try {
             Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("拿出了 " + paper + "，当前仓库中剩余 " + container.size() + " 个产品！");
+        notify();
+        return paper;
+    }
+
+    @Override
+    public int getMaxSize() {
+        return this.maxSize;
     }
 }
