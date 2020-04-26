@@ -1,5 +1,8 @@
 package threadcoreknowledge.threadobjectclasscommonmethods.printoddeven;
 
+import org.junit.Before;
+import org.junit.Test;
+
 /**
  * @author mfh
  * @date 2020/4/24 22:06
@@ -7,6 +10,7 @@ package threadcoreknowledge.threadobjectclasscommonmethods.printoddeven;
 public class WaitNotifyOddEvenWait {
     private static int count;
     private static final Object lock = new Object();
+    private TurningRunner tr;
     static class TurningRunner implements Runnable {
         @Override
         public void run() {
@@ -26,14 +30,28 @@ public class WaitNotifyOddEvenWait {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        TurningRunner tr = new TurningRunner();
-        /*Thread t0 = new Thread(tr, "偶数");
-        Thread t1 = new Thread(tr, "奇数");*/
+    @Before
+    public void before() {
+        tr = new TurningRunner();
+    }
+    @Test
+    public void withThreadName() throws InterruptedException {
+        Thread t0 = new Thread(tr, "偶数");
+        Thread t1 = new Thread(tr, "奇数");
+        t0.start();
+        Thread.sleep(10);
+        t1.start();
+        t0.join();
+        t1.join();
+    }
+
+    @Test
+    public void withoutThreadName() throws InterruptedException {
         Thread t0 = new Thread(tr);
         Thread t1 = new Thread(tr);
         t0.start();
-//        Thread.sleep(10);
         t1.start();
+        t0.join();
+        t1.join();
     }
 }
