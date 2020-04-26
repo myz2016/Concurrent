@@ -39,6 +39,7 @@ public class WaitNotifyOddEvenWait {
         Thread t0 = new Thread(tr, "偶数");
         Thread t1 = new Thread(tr, "奇数");
         t0.start();
+        // 休眠保证 t0 先抢到锁，先打印 0，因为它是打印偶数的线程
         Thread.sleep(10);
         t1.start();
         t0.join();
@@ -47,6 +48,7 @@ public class WaitNotifyOddEvenWait {
 
     @Test
     public void withoutThreadName() throws InterruptedException {
+        // 不区分线程名字，先打印的线程为偶数线程，所以此处不需要休眠
         Thread t0 = new Thread(tr);
         Thread t1 = new Thread(tr);
         t0.start();
