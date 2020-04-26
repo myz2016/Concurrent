@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods.me;
+package threadcoreknowledge.threadobjectclasscommonmethods.analysisthreadstate;
 
 /**
  * @author mfh
