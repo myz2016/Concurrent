@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods;
+package threadcoreknowledge.threadobjectclasscommonmethods.wait;
 
 /**
  * 演示 wait 和 notify 的基本用法

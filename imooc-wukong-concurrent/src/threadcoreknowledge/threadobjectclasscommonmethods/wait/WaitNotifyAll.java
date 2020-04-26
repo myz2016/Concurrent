@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods;
+package threadcoreknowledge.threadobjectclasscommonmethods.wait;
 
 /**
  * 描述：3个线程，t0和t1首先被阻塞，t2唤醒 notifyAll() 唤醒它们。

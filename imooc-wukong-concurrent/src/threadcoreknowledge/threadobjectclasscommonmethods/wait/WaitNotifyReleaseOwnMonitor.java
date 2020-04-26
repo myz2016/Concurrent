@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods;
+package threadcoreknowledge.threadobjectclasscommonmethods.wait;
 
 /**
  * 证明 wait 只释放当前的那把锁

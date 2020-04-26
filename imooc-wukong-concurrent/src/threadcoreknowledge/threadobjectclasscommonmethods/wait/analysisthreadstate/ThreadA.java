@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods.analysisthreadstate;
+package threadcoreknowledge.threadobjectclasscommonmethods.wait.analysisthreadstate;
 
 /**
  * @author mfh

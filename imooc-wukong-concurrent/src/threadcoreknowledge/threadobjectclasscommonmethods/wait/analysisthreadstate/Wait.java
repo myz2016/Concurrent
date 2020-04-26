@@ -1,4 +1,4 @@
-package threadcoreknowledge.threadobjectclasscommonmethods.analysisthreadstate;
+package threadcoreknowledge.threadobjectclasscommonmethods.wait.analysisthreadstate;
 
 /**
  * m1 与 m2 的差别是 m2 在输出线程状态前
