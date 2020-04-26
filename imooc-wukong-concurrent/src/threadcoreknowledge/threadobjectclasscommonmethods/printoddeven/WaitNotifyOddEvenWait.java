@@ -7,7 +7,7 @@ package threadcoreknowledge.threadobjectclasscommonmethods.printoddeven;
 public class WaitNotifyOddEvenWait {
     private static int count;
     private static final Object lock = new Object();
-    static class TurnningRunner implements Runnable {
+    static class TurningRunner implements Runnable {
         @Override
         public void run() {
             while (count <= 100) {
@@ -27,7 +27,7 @@ public class WaitNotifyOddEvenWait {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        TurnningRunner tr = new TurnningRunner();
+        TurningRunner tr = new TurningRunner();
         /*Thread t0 = new Thread(tr, "偶数");
         Thread t1 = new Thread(tr, "奇数");*/
         Thread t0 = new Thread(tr);
