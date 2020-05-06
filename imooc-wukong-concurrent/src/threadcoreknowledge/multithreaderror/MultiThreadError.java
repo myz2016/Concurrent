@@ -1,5 +1,6 @@
 package threadcoreknowledge.multithreaderror;
 
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -12,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class MultiThreadError implements Runnable {
     private int index;
-    static MultiThreadError multiThreadError = new MultiThreadError();
+    final static MultiThreadError multiThreadError = new MultiThreadError();
     private boolean[] marked = new boolean[100_00_00_00];
     private static AtomicInteger total = new AtomicInteger();
     private static AtomicInteger wrongCount = new AtomicInteger();
@@ -22,9 +23,25 @@ public class MultiThreadError implements Runnable {
     public void run() {
         for (int i = 0; i < 10000; i++) {
             total.incrementAndGet();
+            try {
+                cyclicBarrier1.reset();
+                cyclicBarrier0.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
             index++;
+            try {
+                cyclicBarrier0.reset();
+                cyclicBarrier1.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (BrokenBarrierException e) {
+                e.printStackTrace();
+            }
             synchronized (multiThreadError) {
-                if (marked[index]) {
+                if (marked[index] && marked[index - 1]) {
                     wrongCount.incrementAndGet();
                     System.out.println("发生错误的数字：" + index);
                 }

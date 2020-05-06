@@ -1,8 +1,5 @@
 package com.bjsxt.base.sync005;
 
-import sun.org.mozilla.javascript.internal.ast.Yield;
-import sun.plugin2.main.client.MessagePassingOneWayJSObject;
-
 public class SyncException {
     private int i = 0;
     private synchronized void opration() {
