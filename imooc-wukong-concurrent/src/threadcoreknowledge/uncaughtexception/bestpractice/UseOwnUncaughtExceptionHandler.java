@@ -10,11 +10,11 @@ public class UseOwnUncaughtExceptionHandler implements Runnable {
         Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtExceptionHandler("自定义异常捕获器"));
         new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-1").start();
         Thread.sleep(100);
-        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-1").start();
+        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-2").start();
         Thread.sleep(100);
-        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-1").start();
+        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-3").start();
         Thread.sleep(100);
-        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-1").start();
+        new Thread(new UseOwnUncaughtExceptionHandler(), "Thread-4").start();
     }
 
     @Override
