@@ -21,7 +21,7 @@ public class NoVolatile1 implements Runnable {
     }
 
     private void setDone() {
-        // done 的赋值操作依赖之前的值，此操作非原子性操作
+        // done 的赋值操作依赖之前 done 的值，此操作非原子性操作
         this.done = !done;
     }
 
