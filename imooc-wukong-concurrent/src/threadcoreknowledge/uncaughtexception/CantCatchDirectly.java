@@ -12,9 +12,9 @@ public class CantCatchDirectly implements Runnable {
     public static void main(String... args) {
         try {
             new Thread(new CantCatchDirectly(), "Thread-1").start();
-            new Thread(new CantCatchDirectly(), "Thread-1").start();
-            new Thread(new CantCatchDirectly(), "Thread-1").start();
-            new Thread(new CantCatchDirectly(), "Thread-1").start();
+            new Thread(new CantCatchDirectly(), "Thread-2").start();
+            new Thread(new CantCatchDirectly(), "Thread-3").start();
+            new Thread(new CantCatchDirectly(), "Thread-4").start();
         } catch (Exception e) {
             System.out.println("Caught Exception.");
         }
